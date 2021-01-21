@@ -25,7 +25,7 @@ public class Opdracht83 extends Applet {
         setSize(500,500);
 
         //OkKnop
-            OkKnop = new Button("Ok");
+            OkKnop = new Button("Berekenen");
             add(OkKnop);
             OkKnop.addActionListener(new ActionList());
 
