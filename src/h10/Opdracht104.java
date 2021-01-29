@@ -34,7 +34,7 @@ public class Opdracht104 extends Applet {
         TekstVakTwo = new TextField("", 20);
         add(TekstVakTwo);
         TekstVakTwo.addActionListener(new ActionTwo());
-        Enter = new Button("Is het een Schrikkeljaar?");
+        Enter = new Button("Is het een schrikkeljaar?");
         add(Enter);
         EnterTwo = new Button("Maandnaam en aantal dagen");
         add(EnterTwo);
