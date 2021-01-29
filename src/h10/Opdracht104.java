@@ -10,21 +10,23 @@ import java.awt.event.ActionListener;
 public class Opdracht104 extends Applet {
 
     //Declareren
-    Label Lb;
+    Label Lb, LbTwo;
     TextField Tekstvak;
     TextField TekstVakTwo;
     int Maand;
     int Jaartal;
     String s, sTwo, Tekst, TekstTwo;
-    Button Enter;
+    Button Enter, EnterTwo, Reset;
 
     public void init() {
 
         setBackground(Color.lightGray);
 
         //Initialiseren
-        Lb = new Label("Type in het eerste tekstvak een maandummer en in het tweede tekstvak een jaartaal ");
+        Lb = new Label("Type in een jaartaal ");
         add(Lb);
+        LbTwo = new Label("Type in een maandnummer ");
+        add(LbTwo);
         Tekstvak = new TextField("", 20);
         Tekstvak.addActionListener(new ActionOne());
         add(Tekstvak);
@@ -32,10 +34,15 @@ public class Opdracht104 extends Applet {
         TekstVakTwo = new TextField("", 20);
         add(TekstVakTwo);
         TekstVakTwo.addActionListener(new ActionTwo());
-        Enter = new Button("Enter");
+        Enter = new Button("Is het een Schrikkeljaar?");
         add(Enter);
-        Enter.addActionListener(new ActionOne());
+        EnterTwo = new Button("Maandnaam en aantal dagen");
+        add(EnterTwo);
+        EnterTwo.addActionListener(new ActionOne());
         Enter.addActionListener(new ActionTwo());
+        Reset = new Button("Reset");
+        add(Reset);
+        Reset.addActionListener(new ActionThree());
 
 
     }
@@ -44,13 +51,18 @@ public class Opdracht104 extends Applet {
 
         //Locatie van Labels en Tekstvak
         Lb.setLocation(20, 20);
-        Tekstvak.setLocation(20, 50);
-        TekstVakTwo.setLocation(20, 90);
-        g.drawString(Tekst, 20, 140);
+        LbTwo.setLocation(20, 110);
+        Tekstvak.setLocation(20, 140);
+        TekstVakTwo.setLocation(20, 50);
+        g.drawString(Tekst, 20, 180);
         if (TekstTwo != null)
-            g.drawString(TekstTwo, 20, 170);
-        Enter.setSize(50, 25);
-        Enter.setLocation(200, 70);
+            g.drawString(TekstTwo, 20, 90);
+        Enter.setSize(200, 25);
+        Enter.setLocation(200, 50);
+        EnterTwo.setSize(200,25);
+        EnterTwo.setLocation(200, 140);
+        Reset.setSize(50, 25);
+        Reset.setLocation(20, 200);
 
     }
 
@@ -71,9 +83,9 @@ class ActionOne implements ActionListener {
                 case 2:
                     if ( (Jaartal % 4 == 0 && !(Jaartal % 100 == 0)) ||
                             Jaartal % 400 == 0 ) {
-                        Tekst = "In Februari heb je 28 dagen";
-                    } else {
                         Tekst = "In Februari heb je 29 dagen";
+                    } else {
+                        Tekst = "In Februari heb je 28 dagen";
                     }
                     break;
                 case 3:
@@ -118,14 +130,23 @@ class ActionTwo implements ActionListener {
 
         sTwo = TekstVakTwo.getText();
         Jaartal = Integer.parseInt(sTwo);
-        if ( (Jaartal % 4 == 0 && !(Jaartal % 100 == 0)) ||
-                Jaartal % 400 == 0 ) {
-            TekstTwo = "" + Jaartal + " is een schrikkeljaar";
-        }
-        else {
-            TekstTwo = "" + Jaartal + " is geen schrikkeljaar";
+        if ((Jaartal % 4 == 0 && !(Jaartal % 100 == 0)) ||
+                Jaartal % 400 == 0) {
+            TekstTwo = "Het jaar " + Jaartal + " is een schrikkeljaar";
+        } else {
+            TekstTwo = "Het jaar " + Jaartal + " is geen schrikkeljaar";
         }
         repaint();
+
+    }
+
+}
+class ActionThree implements ActionListener {
+
+    public void actionPerformed(ActionEvent e) {
+
+        Tekstvak.setText("");
+        TekstVakTwo.setText("");
 
     }
 }
