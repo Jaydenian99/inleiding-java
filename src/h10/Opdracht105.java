@@ -18,6 +18,7 @@ public class Opdracht105 extends Applet {
     String TextOne;
     String TextTwo;
     String TextThree;
+    String TextFour;
     double G;
     double NedGetal, EngGetal, WiskGetal, UitkomstGemiddeld;
 
@@ -93,6 +94,8 @@ public class Opdracht105 extends Applet {
             g.drawString(TextTwo, 200, 64);
         if (TextThree != null)
             g.drawString(TextThree, 200, 88);
+        if (TextFour != null)
+            g.drawString(TextFour, 150, 165);
 
     }
 
@@ -153,6 +156,11 @@ class ActionFour implements ActionListener {
         UitkomstGemiddeld = (NedGetal + EngGetal + WiskGetal) / 3;
         G = UitkomstGemiddeld;
         GemiddeldTekstVak.setText(String.valueOf(G));
+        if (UitkomstGemiddeld > 5.5) {
+            TextFour = "Je bent geslaagd";
+        } else {
+            TextFour = "Je bent niet geslaagd";
+        }
         repaint();
     }
 
