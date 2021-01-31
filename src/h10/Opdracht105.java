@@ -174,6 +174,10 @@ class Reset implements ActionListener {
         TekstVakTwo.setText("");
         TekstVakThree.setText("");
         GemiddeldTekstVak.setText("");
+        TextOne = "";
+        TextTwo = "";
+        TextThree = "";
+        TextFour = "";
         repaint();
 
     }
