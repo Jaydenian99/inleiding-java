@@ -147,6 +147,9 @@ class ActionThree implements ActionListener {
 
         Tekstvak.setText("");
         TekstVakTwo.setText("");
+        Tekst = "";
+        TekstTwo = "";
+        repaint();
 
     }
 }
