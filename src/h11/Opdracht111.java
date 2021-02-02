@@ -15,10 +15,10 @@ public class Opdracht111 extends Applet {
     public void paint(Graphics g) {
 
         g.setColor(Color.magenta);
-        int y = 20;
+        int x = 20;
         for (int i = 0; i < 10; i++) {
-            g.drawLine(20, y , 400, y);
-            y += 40;
+            g.drawLine(x, 20 , x, 400);
+            x += 40;
         }
 
     }
